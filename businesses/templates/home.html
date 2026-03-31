@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Home | Locatem{% endblock %}
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <div class="container hero-container">
+        <h1>Find the Best Businesses Near You</h1>
+        <p>Discover, explore, and connect with top local services and shops.</p>
+        <a href="#categories" class="btn-primary">Explore Categories</a>
+    </div>
+</section>
+
+<!-- CATEGORY GRID -->
+<section class="categories" id="categories">
+    <div class="container">
+        <h2>Categories</h2>
+        <div class="grid">
+            {% for category in categories %}
+            <a href="{% url 'category_detail' category.slug %}" class="card">
+                <img src="{% static 'images/example.jpg' %}" alt="{{ category.name }}">
+                <h3>{{ category.name }}</h3>
+                <p>{{ category.business_count }} businesses</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- FEATURED BUSINESSES -->
+<section class="featured" id="featured">
+    <div class="container">
+        <h2>Featured Businesses</h2>
+        <div class="grid">
+            {% for business in featured_businesses %}
+            <a href="{% url 'business_detail' business.slug %}" class="card">
+                {% if business.image %}
+                <img src="{{ business.image.url }}" alt="{{ business.name }}">
+                {% endif %}
+                <h3>{{ business.name }}</h3>
+                <span class="badge">{{ business.plan.name }}</span>
+                <p>{{ business.description|truncatewords:20 }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}

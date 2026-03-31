@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+<section class="business-detail">
+    <h2>{{ business.name }}</h2>
+    {% if business.image %}
+        <img src="{{ business.image.url }}" alt="{{ business.name }}">
+    {% endif %}
+    <p>{{ business.description }}</p>
+    <p>Type: {{ business.category.name }}</p>
+    {% if business.plan %}
+        <p>Plan: {{ business.plan.name }} - ${{ business.plan.price }}</p>
+    {% endif %}
+    {% if business.website %}
+        <p>Website: <a href="{{ business.website }}" target="_blank">{{ business.website }}</a></p>
+    {% endif %}
+</section>
+{% endblock %}

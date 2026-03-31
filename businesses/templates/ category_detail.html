@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+<section class="category-detail">
+    <h2>{{ category.name }}</h2>
+    <div class="cards-container">
+        {% for business in businesses %}
+        <div class="card">
+            <h3>{{ business.name }}</h3>
+            {% if business.image %}
+                <img src="{{ business.image.url }}" alt="{{ business.name }}">
+            {% else %}
+                <img src="{% static 'images/placeholder.png' %}" alt="placeholder">
+            {% endif %}
+            <p>{{ business.description|truncatechars:120 }}</p>
+            {% if business.plan %}
+                <p class="plan">Plan: {{ business.plan.name }} - ${{ business.plan.price }}</p>
+            {% endif %}
+            <a href="{% url 'business_detail' business.slug %}" class="btn-secondary">View</a>
+        </div>
+        {% empty %}
+        <p>No businesses in this category yet.</p>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
