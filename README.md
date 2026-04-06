@@ -1,2 +1,17 @@
 # locatem
-SaaS-style local business platform (Locatem) built with Django, enabling businesses to create profiles and users to discover services by category and location.
+
+SaaS-style platform for discovering and promoting local businesses by category and location.
+
+## Features
+- Business profile creation and management  
+- Category-based search and filtering  
+- Location-based discovery  
+- Subscription/plan-based promotion system (in progress)  
+
+## Tech Stack
+- Backend: Django  
+- Frontend: HTML, CSS  
+- Database: SQLite  
+
+## Status
+Currently in development – actively building new features and improving functionality.

@@ -6,6 +6,7 @@ from django.utils.text import slugify
 class Category(models.Model):
     name = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
+    image = models.ImageField(upload_to='business/', blank=True)
 
     def __str__(self):
         return self.name

@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
 
 {% block content %}
 <section class="category-detail">
@@ -9,13 +9,13 @@
         <div class="card">
             <h3>{{ business.name }}</h3>
             {% if business.image %}
-                <img src="{{ business.image.url }}" alt="{{ business.name }}">
+            <img src="{{ business.image.url }}" alt="{{ business.name }}">
             {% else %}
-                <img src="{% static 'images/placeholder.png' %}" alt="placeholder">
+            <img src="{% static 'images/logo.png' %}" alt="placeholder">
             {% endif %}
             <p>{{ business.description|truncatechars:120 }}</p>
             {% if business.plan %}
-                <p class="plan">Plan: {{ business.plan.name }} - ${{ business.plan.price }}</p>
+            <p class="plan">Plan: {{ business.plan.name }}</p>
             {% endif %}
             <a href="{% url 'business_detail' business.slug %}" class="btn-secondary">View</a>
         </div>

@@ -12,13 +12,15 @@
 <header>
     <div class="container header-container">
         <div class="logo">
-            <a href="{% url 'home' %}">Locatem</a>
+            <a href="{% url 'home' %}" class="logo">
+                <img src="{% static 'images/logo.png' %}" alt="Locatem Logo">
+            </a>
         </div>
         <nav>
             <ul>
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'categories' %}">Categories</a></li>
-                <li><a href="#featured">Featured</a></li>
+                <li><a href="{% url 'plans' %}">Plans</a></li>
                 <li><a href="{% url 'contact' %}">Contact</a></li>
             </ul>
         </nav>

@@ -36,6 +36,10 @@ def business_detail(request, slug):
     return render(request, 'business_detail.html', {'business': business})
 
 
+def plans(request):
+    return render(request, 'plans.html')
+
+
 def contact(request):
     form = ContactForm()
     if request.method == 'POST':

@@ -13,23 +13,6 @@
     </div>
 </section>
 
-<!-- CATEGORY GRID -->
-<section class="categories" id="categories">
-    <div class="container">
-        <h2>Categories</h2>
-        <div class="grid">
-            {% for category in categories %}
-            <a href="{% url 'category_detail' category.slug %}" class="card">
-                <img src="{% static 'images/example.jpg' %}" alt="{{ category.name }}">
-                <h3>{{ category.name }}</h3>
-                <p>{{ category.business_count }} businesses</p>
-            </a>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<!-- FEATURED BUSINESSES -->
 <section class="featured" id="featured">
     <div class="container">
         <h2>Featured Businesses</h2>
@@ -42,6 +25,25 @@
                 <h3>{{ business.name }}</h3>
                 <span class="badge">{{ business.plan.name }}</span>
                 <p>{{ business.description|truncatewords:20 }}</p>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="categories" id="categories">
+    <div class="container">
+        <h2>Categories</h2>
+        <div class="grid">
+            {% for category in categories %}
+            <a href="{% url 'category_detail' category.slug %}" class="card">
+                {% if category.image %}
+                <img src="{{ category.image.url }}" alt="{{ category.name }}">
+                {% else %}
+                <img src="{% static 'images/example.jpg' %}" alt="{{ category.name }}">
+                {% endif %}
+                <h3>{{ category.name }}</h3>
+                <p>{{ category.business_count }} businesses</p>
             </a>
             {% endfor %}
         </div>
