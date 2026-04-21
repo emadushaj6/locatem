@@ -11,9 +11,12 @@ def home(request):
     featured_businesses = Business.objects.filter(
         is_featured=True, is_active=True)[:4]
 
+    business_count = Business.objects.count()
+
     context = {
         'categories': categories,
-        'featured_businesses': featured_businesses
+        'featured_businesses': featured_businesses,
+        'business_count': business_count,
     }
     return render(request, 'home.html', context)
 
@@ -38,6 +41,10 @@ def business_detail(request, slug):
 
 def plans(request):
     return render(request, 'plans.html')
+
+
+def about(request):
+    return render(request, 'about.html')
 
 
 def contact(request):

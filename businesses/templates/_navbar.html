@@ -1,0 +1,74 @@
+{% load static %}
+
+<header>
+    <div class="container header-container">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo3.png' %}" alt="Locatem Logo">
+            </a>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search cafes, barbers...">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'categories' %}">Categories</a></li>
+                <li><a href="{% url 'plans' %}">Plans</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="mega-menu">
+
+        <div class="mega-item">
+            <span>☕ Cafes & Restaurants</span>
+            <div class="mega-dropdown">
+                <a href="/category/cafe">☕ Cafe</a>
+                <a href="/category/restaurant">🍽 Restaurant</a>
+                <a href="/category/bakery">🥐 Bakery</a>
+                <a href="#">🐟 Fish Market</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>🏠 Home Services</span>
+            <div class="mega-dropdown">
+                <a href="/category/electrician">⚡ Electrician</a>
+                <a href="/category/plumber">🔧 Plumber</a>
+                <a href="#">🎨 Painter</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>🚗 Auto Services</span>
+            <div class="mega-dropdown">
+                <a href="/category/car-repair">🔧 Car Repair</a>
+                <a href="#">✨ Detailing</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>💇 Health & Beauty</span>
+            <div class="mega-dropdown">
+                <a href="/category/medical-clinic">🏥 Medical</a>
+                <a href="/category/dentist">🦷 Dentist</a>
+                <a href="/category/barber">✂ Barber</a>
+                <a href="/category/hair-salon">💇 Hair Salon</a>
+                <a href="#">💅 Beauty Center</a>
+                <a href="#">✨ Laser</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>⭐ Other</span>
+            <div class="mega-dropdown">
+                <a href="/category/gym">🏋 Gym</a>
+                <a href="/category/photographer">📸 Photographer</a>
+            </div>
+        </div>
+    </div>
+</header>

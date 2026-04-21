@@ -2,16 +2,89 @@
 {% load static %}
 
 {% block title %}Home | Locatem{% endblock %}
-{% block content %}
 
-<!-- HERO -->
-<section class="hero">
+{% block navbar %}
+<header class="hero">
+    <div class="container header-container">
+        <div class="logo">
+            <a href="{% url 'home' %}">
+                <img src="{% static 'images/logo2.png' %}" alt="Locatem Logo">
+            </a>
+        </div>
+
+        <div class="search-bar">
+            <input type="text" placeholder="Search cafes, barbers...">
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><a href="{% url 'categories' %}">Categories</a></li>
+                <li><a href="{% url 'plans' %}">Plans</a></li>
+                <li><a href="{% url 'contact' %}">Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="mega-menu">
+
+        <div class="mega-item">
+            <span>☕ Cafes & Restaurants</span>
+            <div class="mega-dropdown">
+                <a href="/category/cafe">☕ Cafe</a>
+                <a href="/category/restaurant">🍽 Restaurant</a>
+                <a href="/category/bakery">🥐 Bakery</a>
+                <a href="#">🐟 Fish Market</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>🏠 Home Services</span>
+            <div class="mega-dropdown">
+                <a href="/category/electrician">⚡ Electrician</a>
+                <a href="/category/plumber">🔧 Plumber</a>
+                <a href="#">🎨 Painter</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>🚗 Auto Services</span>
+            <div class="mega-dropdown">
+                <a href="/category/car-repair">🔧 Car Repair</a>
+                <a href="#">✨ Detailing</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>💇 Health & Beauty</span>
+            <div class="mega-dropdown">
+                <a href="/category/medical-clinic">🏥 Medical</a>
+                <a href="/category/dentist">🦷 Dentist</a>
+                <a href="/category/barber">✂ Barber</a>
+                <a href="/category/hair-salon">💇 Hair Salon</a>
+                <a href="#">💅 Beauty Center</a>
+                <a href="#">✨ Laser</a>
+            </div>
+        </div>
+
+        <div class="mega-item">
+            <span>⭐ Other</span>
+            <div class="mega-dropdown">
+                <a href="/category/gym">🏋 Gym</a>
+                <a href="/category/photographer">📸 Photographer</a>
+            </div>
+        </div>
+    </div>
+
     <div class="container hero-container">
         <h1>Find the Best Businesses Near You</h1>
         <p>Discover, explore, and connect with top local services and shops.</p>
         <a href="#categories" class="btn-primary">Explore Categories</a>
     </div>
-</section>
+</header>
+{% endblock %}
+
+{% block content %}
 
 <section class="featured" id="featured">
     <div class="container">
@@ -23,7 +96,11 @@
                 <img src="{{ business.image.url }}" alt="{{ business.name }}">
                 {% endif %}
                 <h3>{{ business.name }}</h3>
+                {% if business.plan.name == 'Premium' %}
                 <span class="badge">{{ business.plan.name }}</span>
+                {% else %}
+                <span class="badge2">{{ business.plan.name }}</span>
+                {% endif %}
                 <p>{{ business.description|truncatewords:20 }}</p>
             </a>
             {% endfor %}
@@ -49,5 +126,74 @@
         </div>
     </div>
 </section>
+
+<section class="choose" id="choose">
+    <div class="container">
+        <h2>Why Choose Locatem?</h2>
+        <p class="choose-subtitle">We help you discover trusted local businesses quickly and easily.</p>
+
+        <div class="grid choose-grid">
+
+            <div class="choose-card fade-in">
+                <div class="card-inner">
+                    <div class="icon">✔️</div>
+                    <h3>Verified Businesses</h3>
+                    <p>All listings are reviewed to ensure quality, reliability, and professionalism.</p>
+                </div>
+            </div>
+
+            <div class="choose-card fade-in">
+                <div class="card-inner">
+                    <div class="icon">⚡</div>
+                    <h3>Fast & Direct Contact</h3>
+                    <p>Connect instantly with businesses without unnecessary steps or delays.</p>
+                </div>
+            </div>
+
+            <div class="choose-card fade-in">
+                <div class="card-inner">
+                    <div class="icon">⭐</div>
+                    <h3>Trusted Locally</h3>
+                    <p>Discover businesses trusted by people in your area and growing every day.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="stats-badge">
+            <p><strong>{{ business_count }}+</strong> businesses listed and growing</p>
+        </div>
+    </div>
+</section>
+
+<section class="get-listed" id="get-listed">
+    <div class="container get-listed-container">
+        <h2>Own a business? Get discovered today.</h2>
+        <p>Join Locatem and reach more customers in your area. Simple, fast, and effective.</p>
+        <a href="{% url 'plans' %}" class="btn-primary">Get Started</a>
+    </div>
+</section>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+
+        const elements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('show');
+                    }, 150);
+                }
+            });
+        }, {
+            threshold: 0.2
+        });
+
+        elements.forEach(el => observer.observe(el));
+
+    });
+</script>
 
 {% endblock %}

@@ -1,42 +1,52 @@
-/* --- GLOBAL RESET --- */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 body {
     background: #f7f6fb;
     color: #333;
     line-height: 1.6;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .container {
-    max-width: 1200px;
+    max-width: 1350px;
     margin: auto;
-    padding: 2rem;
+    padding: 1.5rem;
 }
 
-/* --- HEADER --- */
-header {
-    background: #fff;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
-    position: sticky;
-    top: 0;
-    z-index: 999;
+.hero {
+    background: linear-gradient(rgba(106, 27, 154, 0.7), rgba(106, 27, 154, 0.6)), url('../images/example.jpg') center/cover no-repeat;
+    color: #fff;
+    padding-bottom: 5rem;
 }
 
 .header-container {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    justify-content: space-between;
 }
 
 .logo img {
-    height: 40px;
-    object-fit: contain;
+    height: 65px;
+    width: auto;
+}
+
+.search-bar {
+    flex: 1;
+    margin: 0 2rem;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 0.9rem 1.2rem;
+    border-radius: 30px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
 nav ul {
@@ -45,61 +55,105 @@ nav ul {
     gap: 1.5rem;
 }
 
-nav ul li a {
+nav a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.mega-menu {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 0.5rem;
+    margin-bottom: 2.5rem;
+}
+
+.mega-item {
+    position: relative;
+    cursor: pointer;
+}
+
+.mega-item span {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.6rem 1rem;
+    border-radius: 20px;
+    transition: 0.3s;
+}
+
+.mega-item span:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.mega-dropdown {
+    display: none;
+    position: absolute;
+    top: 130%;
+    left: 0;
+    background: #fff;
+    min-width: 200px;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.mega-dropdown a {
+    display: block;
+    padding: 12px 15px;
     text-decoration: none;
     color: #333;
-    font-weight: 500;
-    padding: 0.4rem 0.6rem;
-    border-radius: 5px;
-    transition: all 0.3s;
+    font-size: 0.95rem;
 }
 
-nav ul li a:hover {
-    background: #6a1b9a;
-    color: #fff;
+.mega-dropdown a:hover {
+    background: #f3f3f3;
 }
 
-/* --- HERO SECTION --- */
-.hero {
-    background: linear-gradient(rgba(106, 27, 154, 0.6), rgba(106, 27, 154, 0.4)), url('../images/example.jpg') center/cover no-repeat;
-    color: #fff;
+.mega-item:hover .mega-dropdown {
+    display: block;
+}
+
+.hero-container {
     text-align: center;
-    padding: 6rem 2rem;
-    border-radius: 15px;
-    margin-bottom: 3rem;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    margin-top: 3rem;
 }
 
 .hero h1 {
-    font-size: 3rem;
+    font-size: 2.8rem;
     margin-bottom: 1rem;
-    letter-spacing: 1px;
 }
 
 .hero p {
-    font-size: 1.3rem;
     margin-bottom: 2rem;
+    font-size: 1.2rem;
 }
 
 .btn-primary {
     background: #8e24aa;
-    /* purple button */
     color: #fff;
-    padding: 0.8rem 2rem;
+    padding: 1rem 2.2rem;
     border: none;
-    border-radius: 8px;
+    border-radius: 25px;
     font-weight: bold;
     cursor: pointer;
-    transition: all 0.3s;
+    transition: 0.3s;
+    font-size: x-large;
     text-decoration: none;
 }
 
 .btn-primary:hover {
-    transform: translateY(-3px);
     background: #6a1b9a;
+    transform: translateY(-3px);
 }
 
-/* --- SECTIONS --- */
 section h2 {
     text-align: center;
     margin-bottom: 2rem;
@@ -118,14 +172,12 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* --- GRID LAYOUT --- */
 .grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
 
-/* --- CARDS --- */
 .card {
     background: #fff;
     border-radius: 12px;
@@ -166,10 +218,8 @@ section h2::after {
     box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-/* --- BADGES --- */
 .badge {
     background: #8e24aa;
-    /* purple badge */
     color: #fff;
     padding: 0.3rem 0.7rem;
     border-radius: 6px;
@@ -178,7 +228,152 @@ section h2::after {
     margin: 0 1rem 0.5rem 1rem;
 }
 
-/* --- BUSINESS DETAIL --- */
+.badge2 {
+    background: #fbc02d;
+    color: #fff;
+    padding: 0.3rem 0.7rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    display: inline-block;
+    margin: 0 1rem 0.5rem 1rem;
+}
+
+.choose {
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.choose-subtitle {
+    color: #666;
+    margin-bottom: 2rem;
+}
+
+.choose-grid {
+    margin-top: 2rem;
+}
+
+.choose-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+    will-change: transform;
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.choose-card .icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.choose-card:hover .card-inner {
+    transform: translateY(-6px);
+}
+
+.card-inner {
+    transition: transform 0.3s ease;
+}
+
+.choose-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 14px;
+    padding: 1px;
+    background: linear-gradient(135deg, #8e24aa, #c158dc);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+.choose-card:hover::before {
+    opacity: 1;
+}
+
+.choose-card:hover {
+    box-shadow: 0 15px 35px rgba(106, 27, 154, 0.25);
+}
+
+.choose-card:nth-child(1) {
+    transition-delay: 0.15s;
+}
+
+.choose-card:nth-child(2) {
+    transition-delay: 0.3s;
+}
+
+.choose-card:nth-child(3) {
+    transition-delay: 0.45s;
+}
+
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.7s ease;
+}
+
+.fade-in.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.stats-badge {
+    display: inline-block;
+    margin-top: 3.5rem;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, #8e24aa, #c158dc);
+    box-shadow: 0 8px 20px rgba(142, 36, 170, 0.4);
+    position: relative;
+    overflow: hidden;
+}
+
+/* .stats-badge::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: skewX(-25deg);
+    animation: shineLoop 3s infinite;
+}
+
+.stats-badge:hover::after {
+    animation: shine 1.8s forwards;
+} */
+
+@keyframes shineLoop {
+    0% {
+        left: -75%;
+    }
+
+    50% {
+        left: 125%;
+    }
+
+    100% {
+        left: 125%;
+    }
+}
+
+.get-listed {
+    background: linear-gradient(135deg, #f0dfdf, #be81e4);
+    color: #fff;
+    text-align: center;
+    padding: 4rem 0;
+}
+
+.get-listed p {
+    margin: 1rem 0 2rem 0;
+}
+
 .business-detail .business-header {
     display: flex;
     flex-wrap: wrap;
@@ -196,7 +391,6 @@ section h2::after {
     flex: 1;
 }
 
-/* --- CONTACT FORM --- */
 .contact form {
     max-width: 600px;
     margin: auto;
@@ -230,7 +424,6 @@ section h2::after {
     transform: translateY(-2px);
 }
 
-/* --- FOOTER --- */
 footer {
     background: #fff;
     text-align: center;
@@ -248,7 +441,6 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
-/* --- PLANS PAGE --- */
 .plans {
     text-align: center;
 }
@@ -276,7 +468,6 @@ footer p {
     transform: translateY(-8px);
 }
 
-/* COLORS */
 .plan-card.basic {
     border-top: 5px solid #9e9e9e;
 }
@@ -289,7 +480,6 @@ footer p {
     border-top: 5px solid #8e24aa;
 }
 
-/* TEXT */
 .plan-card h3 {
     margin-bottom: 1rem;
 }
@@ -314,7 +504,6 @@ footer p {
     margin-bottom: 0.5rem;
 }
 
-/* BUTTON */
 .btn-plan {
     display: inline-block;
     background: #8e24aa;
