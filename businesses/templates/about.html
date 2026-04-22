@@ -1,7 +1,108 @@
 {% extends 'base.html' %}
-{% load static %}
 {% block title %}About | Locatem{% endblock %}
 
 {% block content %}
+
+<section class="about-page container">
+
+    <h2>About Locatem</h2>
+
+    <p class="about-intro">
+        Locatem is a SaaS-style platform focused on simplifying how users discover and interact with local businesses.
+        The platform is designed to provide a structured, category-based system where services can be explored
+        efficiently, while also offering businesses a clear and scalable way to present themselves online.
+    </p>
+
+    <div class="about-block">
+        <h3>Platform Overview</h3>
+        <p>
+            Locatem operates as a centralized directory where businesses are organized into clearly defined categories
+            and locations. This structure allows users to navigate services intuitively, avoiding the clutter and
+            inconsistency often found in traditional search methods.
+        </p>
+        <p>
+            Each business listed on the platform includes essential information such as contact details, descriptions,
+            and relevant media. This ensures that users can make informed decisions without needing to rely on multiple
+            sources.
+        </p>
+    </div>
+
+    <div class="about-block">
+        <h3>Core Functionality</h3>
+        <ul class="about-list">
+            <li>Structured business profiles with essential information</li>
+            <li>Category-based navigation for simplified browsing</li>
+            <li>Location-based discovery for relevant results</li>
+            <li>Search and filtering capabilities</li>
+            <li>Scalable promotion system for business visibility</li>
+        </ul>
+    </div>
+
+    <div class="about-block">
+        <h3>Approach and Philosophy</h3>
+        <p>
+            The platform is built with a strong emphasis on usability and clarity. Instead of overwhelming users with
+            excessive data or complex interfaces, Locatem focuses on delivering a streamlined experience where
+            information is easy to access and understand. From a business perspective, the goal is to provide a reliable
+            digital presence that can grow over time. The platform is structured to support gradual enhancement through
+            subscription-based visibility and feature access.
+        </p>
+    </div>
+
+    <div class="about-block">
+        <h3>Subscription Model</h3>
+        <p>
+            Locatem includes a tiered subscription system designed to provide increasing levels of visibility and
+            functionality.
+            While the platform remains accessible at a basic level, businesses can choose to enhance their presence
+            depending
+            on their needs.
+        </p>
+
+        <ul class="about-list">
+            <li><strong>Basic:</strong> Entry-level listing with essential business information</li>
+            <li><strong>Standard:</strong> Increased visibility with additional content and media support</li>
+            <li><strong>Premium:</strong> Maximum exposure with priority placement and full profile capabilities</li>
+        </ul>
+    </div>
+
+    <div class="about-block">
+        <h3>Technology Stack</h3>
+        <p>
+            Locatem is developed using a modern and efficient technology stack. The backend is powered by Django,
+            providing a robust and scalable architecture. The frontend is built with HTML and CSS, focusing on clean
+            and maintainable design patterns.
+        </p>
+        <p>
+            The current database solution is SQLite, primarily used during development for simplicity and speed.
+            The architecture allows for seamless migration to more advanced database systems as the platform grows.
+        </p>
+    </div>
+
+    <div class="about-block">
+        <h3>Development Status</h3>
+        <p>
+            The platform is currently in active development. Core features have been implemented, including business
+            listing, category organization, and foundational UI components. Ongoing work includes improving search
+            functionality, refining the user interface, and completing the
+            subscription-based promotion system.
+        </p>
+    </div>
+
+    <div class="about-block">
+        <h3>Future Direction</h3>
+        <p>
+            The long-term vision for Locatem is to evolve into a fully-featured platform that supports both users and
+            businesses at scale. Planned improvements include enhanced filtering, better ranking algorithms,
+            and more advanced tools for business management.
+        </p>
+        <br>
+        <p>
+            The focus remains on maintaining a balance between simplicity and functionality, ensuring that the platform
+            remains accessible while continuing to grow in capability.
+        </p>
+    </div>
+
+</section>
 
 {% endblock %}

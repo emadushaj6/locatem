@@ -7,14 +7,15 @@
     <h2>Categories</h2>
     <div class="cards-container">
         {% for category in categories %}
-        <div class="card">
+        <div class="categories-card">
             <h3>{{ category.name }}</h3>
             {% if category.image %}
             <img src="{{ category.image.url }}" alt="{{ category.name }}">
             {% else %}
             <img src="{% static 'images/example.jpg' %}" alt="{{ category.name }}">
             {% endif %}
-            <a href="{% url 'category_detail' category.slug %}" class="btn-secondary"> > Explore Category</a>
+            <a href="{% url 'category_detail' category.slug %}" class="btn-secondary"><span class="arrow">→</span>
+                Explore Category</a>
         </div>
         {% empty %}
         <p>No categories found.</p>

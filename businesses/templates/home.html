@@ -29,49 +29,58 @@
     <div class="mega-menu">
 
         <div class="mega-item">
-            <span>☕ Cafes & Restaurants</span>
-            <div class="mega-dropdown">
+            <span>☕ Food & Drinks ▾</span>
+            <div class=" mega-dropdown">
                 <a href="/category/cafe">☕ Cafe</a>
                 <a href="/category/restaurant">🍽 Restaurant</a>
+                <a href="/category/supermarket">✨ Supermarket</a>
                 <a href="/category/bakery">🥐 Bakery</a>
-                <a href="#">🐟 Fish Market</a>
+                <a href="/category/fish-market">🐟 Fish Market</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>🏠 Home Services</span>
+            <span>🏠 Home Services ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/electrician">⚡ Electrician</a>
                 <a href="/category/plumber">🔧 Plumber</a>
-                <a href="#">🎨 Painter</a>
+                <a href="/category/painting">🎨 Painter</a>
+                <a href="/category/home-cleaning">✨ Home Cleaning</a>
+                <a href="/category/movers">✨ Movers</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>🚗 Auto Services</span>
+            <span>🚗 Auto Services ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/car-repair">🔧 Car Repair</a>
-                <a href="#">✨ Detailing</a>
+                <a href="/category/car-rental">✨ Car Rental</a>
+                <a href="/category/detailing">✨ Detailing</a>
+                <a href="/category/tires">✨ Tires</a>
+                <a href="/category/car-wash">✨ Car Wash</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>💇 Health & Beauty</span>
+            <span>💇 Health & Beauty ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/medical-clinic">🏥 Medical</a>
                 <a href="/category/dentist">🦷 Dentist</a>
                 <a href="/category/barber">✂ Barber</a>
                 <a href="/category/hair-salon">💇 Hair Salon</a>
-                <a href="#">💅 Beauty Center</a>
-                <a href="#">✨ Laser</a>
+                <a href="/category/beauty-center">💅 Beauty Center</a>
+                <a href="/category/laser">✨ Laser</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>⭐ Other</span>
+            <span>⭐ Other ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/gym">🏋 Gym</a>
                 <a href="/category/photographer">📸 Photographer</a>
+                <a href="/category/bookstore">✨ Bookstore</a>
+                <a href="/category/swimming-pool">✨ Swimming Pool</a>
+                <a href="/category/real-estate">✨ Real Estate</a>
             </div>
         </div>
     </div>
@@ -79,7 +88,7 @@
     <div class="container hero-container">
         <h1>Find the Best Businesses Near You</h1>
         <p>Discover, explore, and connect with top local services and shops.</p>
-        <a href="#categories" class="btn-primary">Explore Categories</a>
+        <a href="/categories" class="btn-primary">Explore Categories</a>
     </div>
 </header>
 {% endblock %}
@@ -89,21 +98,41 @@
 <section class="featured" id="featured">
     <div class="container">
         <h2>Featured Businesses</h2>
-        <div class="grid">
-            {% for business in featured_businesses %}
-            <a href="{% url 'business_detail' business.slug %}" class="card">
-                {% if business.image %}
-                <img src="{{ business.image.url }}" alt="{{ business.name }}">
-                {% endif %}
-                <h3>{{ business.name }}</h3>
+        <div class="featured-businesses">
+            <div class="grid">
+                {% for business in featured_businesses %}
                 {% if business.plan.name == 'Premium' %}
-                <span class="badge">{{ business.plan.name }}</span>
-                {% else %}
-                <span class="badge2">{{ business.plan.name }}</span>
+                <a href="{% url 'business_detail' business.slug %}" class="card">
+                    {% if business.image %}
+                    <img src="{{ business.image.url }}" alt="{{ business.name }}">
+                    {% else %}
+                    <img src="{% static 'images/example.jpg' %}" alt="{{ business.name }}">
+                    {% endif %}
+                    <h3>{{ business.name }}</h3>
+                    <span class="badge">{{ business.plan.name }}</span>
+                    <p>{{ business.description|truncatewords:20 }}</p>
+                </a>
                 {% endif %}
-                <p>{{ business.description|truncatewords:20 }}</p>
-            </a>
-            {% endfor %}
+                {% endfor %}
+            </div>
+            <div class="grid">
+                {% for business in featured_businesses %}
+                {% if business.plan.name == 'Standard' %}
+
+                <a href="{% url 'business_detail' business.slug %}" class="card">
+                    {% if business.image %}
+                    <img src="{{ business.image.url }}" alt="{{ business.name }}">
+                    {% else %}
+                    <img src="{% static 'images/example.jpg' %}" alt="{{ business.name }}">
+                    {% endif %}
+                    <h3>{{ business.name }}</h3>
+                    <span class="badge2">{{ business.plan.name }}</span>
+                    <p>{{ business.description|truncatewords:20 }}</p>
+                </a>
+
+                {% endif %}
+                {% endfor %}
+            </div>
         </div>
     </div>
 </section>

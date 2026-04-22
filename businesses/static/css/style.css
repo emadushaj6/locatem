@@ -17,6 +17,28 @@ body {
     padding: 1.5rem;
 }
 
+/* General nav */
+
+.right-nav a {
+    text-decoration: none;
+    color: #000000;
+    font-weight: 500;
+    padding: 0.5rem 0.8rem;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.right-nav a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+.main-menu span {
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Homepage nav and hero section */
+
 .hero {
     background: linear-gradient(rgba(106, 27, 154, 0.7), rgba(106, 27, 154, 0.6)), url('../images/example.jpg') center/cover no-repeat;
     color: #fff;
@@ -31,7 +53,7 @@ body {
 
 .logo img {
     height: 65px;
-    width: auto;
+    width: 160px;
 }
 
 .search-bar {
@@ -66,7 +88,7 @@ nav a {
 
 nav a:hover {
     background: rgba(255, 255, 255, 0.2);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 .mega-menu {
@@ -103,6 +125,7 @@ nav a:hover {
     border-radius: 12px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     overflow: hidden;
+    z-index: 1;
 }
 
 .mega-dropdown a {
@@ -138,6 +161,7 @@ nav a:hover {
 
 .btn-primary {
     background: #8e24aa;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
     color: #fff;
     padding: 1rem 2.2rem;
     border: none;
@@ -153,6 +177,8 @@ nav a:hover {
     background: #6a1b9a;
     transform: translateY(-3px);
 }
+
+/* Second section with featured businesses */
 
 section h2 {
     text-align: center;
@@ -172,11 +198,18 @@ section h2::after {
     border-radius: 2px;
 }
 
+.featured-businesses {
+    display: flex;
+    flex-direction: column;
+}
+
 .grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
 }
+
+/* Card class also used for categories page */
 
 .card {
     background: #fff;
@@ -189,22 +222,25 @@ section h2::after {
     flex-direction: column;
     justify-content: flex-start;
     margin: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
 .card img {
     width: 100%;
     height: 180px;
-    object-fit: cover;
     transition: transform 0.3s;
 }
 
 .card:hover img {
-    transform: scale(1.05);
+    transform: scale(1.03);
 }
 
 .card h3 {
     margin: 1rem;
     font-size: 1.3rem;
+    text-transform: capitalize;
+    text-align: start;
+    color: #441c5c;
 }
 
 .card p {
@@ -215,7 +251,7 @@ section h2::after {
 
 .card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
 .badge {
@@ -237,6 +273,8 @@ section h2::after {
     display: inline-block;
     margin: 0 1rem 0.5rem 1rem;
 }
+
+/* Why choose us section */
 
 .choose {
     text-align: center;
@@ -267,11 +305,12 @@ section h2::after {
     margin-bottom: 1rem;
 }
 
-.choose-card:hover .card-inner {
+.choose-card:hover {
     transform: translateY(-6px);
 }
 
 .card-inner {
+    transform: translateY(-6px);
     transition: transform 0.3s ease;
 }
 
@@ -333,7 +372,7 @@ section h2::after {
     overflow: hidden;
 }
 
-/* .stats-badge::after {
+.stats-badge::after {
     content: "";
     position: absolute;
     top: 0;
@@ -346,8 +385,8 @@ section h2::after {
 }
 
 .stats-badge:hover::after {
-    animation: shine 1.8s forwards;
-} */
+    animation: shineLoop 1.5s infinite;
+}
 
 @keyframes shineLoop {
     0% {
@@ -374,22 +413,58 @@ section h2::after {
     margin: 1rem 0 2rem 0;
 }
 
-.business-detail .business-header {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 2rem;
+/* Footer */
+
+footer {
+    background: #fff;
+    text-align: center;
+    padding: 2rem;
+    margin-top: 3rem;
+    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.07);
+}
+
+footer a {
+    text-decoration: none;
+    color: #8e24aa;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
+
+
+/* ABOUT */
+
+.about-page {
+    max-width: 900px;
+}
+
+.about-intro {
     margin-bottom: 2rem;
+    font-size: 1.05rem;
+    color: #555;
 }
 
-.business-detail img {
-    max-width: 400px;
-    width: 100%;
-    border-radius: 12px;
+.about-block {
+    margin-bottom: 2.5rem;
 }
 
-.business-detail .info {
-    flex: 1;
+.about-block h3 {
+    margin-bottom: 0.8rem;
+    color: #441c5c;
 }
+
+.about-list {
+    margin-top: 1rem;
+    padding-left: 1.2rem;
+}
+
+.about-list li {
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+/* Contact page */
 
 .contact form {
     max-width: 600px;
@@ -424,22 +499,7 @@ section h2::after {
     transform: translateY(-2px);
 }
 
-footer {
-    background: #fff;
-    text-align: center;
-    padding: 2rem;
-    margin-top: 3rem;
-    box-shadow: 0 -3px 10px rgba(0, 0, 0, 0.07);
-}
-
-footer a {
-    text-decoration: none;
-    color: #8e24aa;
-}
-
-footer p {
-    margin-bottom: 0.5rem;
-}
+/* Plans */
 
 .plans {
     text-align: center;
@@ -501,12 +561,11 @@ footer p {
 }
 
 .plan-card ul li {
-    margin-bottom: 0.5rem;
+    margin: 0.5rem;
 }
 
 .btn-plan {
     display: inline-block;
-    background: #8e24aa;
     color: #fff;
     padding: 0.7rem 1.5rem;
     border-radius: 8px;
@@ -514,8 +573,85 @@ footer p {
     transition: 0.3s;
 }
 
-.btn-plan:hover {
+.plan-card.basic .btn-plan {
+    background: #9e9e9e;
+}
+
+.plan-card.basic .btn-plan:hover {
+    background: #6a6666;
+}
+
+.plan-card.standard .btn-plan {
+    background: #fbc02d;
+}
+
+.plan-card.standard .btn-plan:hover {
+    background: #c59620;
+}
+
+.plan-card.premium .btn-plan {
+    background: #b53ed6;
+}
+
+.plan-card.premium .btn-plan:hover {
     background: #6a1b9a;
+}
+
+/* Categories page */
+
+.categories-section {
+    margin: 70px 100px;
+    text-align: center;
+}
+
+.cards-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+}
+
+.categories-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    margin: 20px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.categories-card img {
+    width: 100%;
+    height: 210px;
+    padding: 0px 20px;
+    border-radius: 7%;
+    margin: 20px 0px;
+    transition: transform 0.3s;
+}
+
+.categories-card:hover img {
+    transform: scale(1.02);
+}
+
+.categories-card h3 {
+    margin: 1rem;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+    text-align: start;
+    color: #441c5c;
+    border-bottom: 2px solid #441c5c;
+    border-left: 2px solid #441c5c;
+    border-radius: 5px;
+    padding: 5px 10px;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.categories-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35);
 }
 
 .btn-secondary {
@@ -524,8 +660,39 @@ footer p {
     font-weight: 600;
     margin: 10px;
     color: #6a1b9a;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.btn-secondary .arrow {
+    display: inline-block;
+    transition: transform 0.2s ease;
+}
+
+.btn-secondary:hover .arrow {
+    transform: translateX(4px);
 }
 
 .btn-secondary:hover {
     color: #9b65a9;
+}
+
+/* Category and business detail page */
+
+.business-detail .business-header {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.business-detail img {
+    max-width: 400px;
+    width: 100%;
+    border-radius: 12px;
+}
+
+.business-detail .info {
+    flex: 1;
 }

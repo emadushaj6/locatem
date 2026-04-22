@@ -12,7 +12,7 @@
             {% if business.image %}
             <img src="{{ business.image.url }}" alt="{{ business.name }}">
             {% else %}
-            <img src="{% static 'images/logo.png' %}" alt="placeholder">
+            <img src="{% static 'images/example.jpg' %}" alt="placeholder">
             {% endif %}
             <p>{{ business.description|truncatechars:120 }}</p>
             {% if business.plan %}

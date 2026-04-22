@@ -12,7 +12,7 @@
             <input type="text" placeholder="Search cafes, barbers...">
         </div>
 
-        <nav>
+        <nav class="right-nav">
             <ul>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><a href="{% url 'categories' %}">Categories</a></li>
@@ -22,52 +22,61 @@
         </nav>
     </div>
 
-    <div class="mega-menu">
+    <div class="mega-menu main-menu">
 
         <div class="mega-item">
-            <span>☕ Cafes & Restaurants</span>
-            <div class="mega-dropdown">
+            <span>☕ Food & Drinks ▾</span>
+            <div class=" mega-dropdown">
                 <a href="/category/cafe">☕ Cafe</a>
                 <a href="/category/restaurant">🍽 Restaurant</a>
+                <a href="/category/supermarket">✨ Supermarket</a>
                 <a href="/category/bakery">🥐 Bakery</a>
-                <a href="#">🐟 Fish Market</a>
+                <a href="/category/fish-market">🐟 Fish Market</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>🏠 Home Services</span>
+            <span>🏠 Home Services ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/electrician">⚡ Electrician</a>
                 <a href="/category/plumber">🔧 Plumber</a>
-                <a href="#">🎨 Painter</a>
+                <a href="/category/painting">🎨 Painter</a>
+                <a href="/category/home-cleaning">✨ Home Cleaning</a>
+                <a href="/category/movers">✨ Movers</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>🚗 Auto Services</span>
+            <span>🚗 Auto Services ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/car-repair">🔧 Car Repair</a>
-                <a href="#">✨ Detailing</a>
+                <a href="/category/car-rental">✨ Car Rental</a>
+                <a href="/category/detailing">✨ Detailing</a>
+                <a href="/category/tires">✨ Tires</a>
+                <a href="/category/car-wash">✨ Car Wash</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>💇 Health & Beauty</span>
+            <span>💇 Health & Beauty ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/medical-clinic">🏥 Medical</a>
                 <a href="/category/dentist">🦷 Dentist</a>
                 <a href="/category/barber">✂ Barber</a>
                 <a href="/category/hair-salon">💇 Hair Salon</a>
-                <a href="#">💅 Beauty Center</a>
-                <a href="#">✨ Laser</a>
+                <a href="/category/beauty-center">💅 Beauty Center</a>
+                <a href="/category/laser">✨ Laser</a>
             </div>
         </div>
 
         <div class="mega-item">
-            <span>⭐ Other</span>
+            <span>⭐ Other ▾</span>
             <div class="mega-dropdown">
                 <a href="/category/gym">🏋 Gym</a>
                 <a href="/category/photographer">📸 Photographer</a>
+                <a href="/category/bookstore">✨ Bookstore</a>
+                <a href="/category/swimming-pool">✨ Swimming Pool</a>
+                <a href="/category/real-estate">✨ Real Estate</a>
             </div>
         </div>
     </div>
